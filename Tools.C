@@ -141,7 +141,8 @@ uint64_t Tools::setBits(uint64_t source, int32_t low, int32_t high)
   if (low < 0 || high > 63 || low > high) {
     return source;
   }
-  return 0;
+  uint64_t modified = (getBits(source, low, high) & 0xff);
+  return source + modified;
 }
 
 /**
