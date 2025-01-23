@@ -110,7 +110,7 @@ uint64_t Tools::getBits(uint64_t source, int32_t low, int32_t high)
   if (low < 0 || high > 63 || low > high) {
     return 0;
   } 
-  return (((source << (high - low)) >> high) & 0xff);
+  return ((source << (63 - high)) >> ((63 - high) + low));
 }
 
 
